@@ -1,5 +1,7 @@
+//This routes folder will have to be deleted
 const router = require('express').Router();
 const {
+  //Create mutations
   createUser,
   getSingleUser,
   saveBook,

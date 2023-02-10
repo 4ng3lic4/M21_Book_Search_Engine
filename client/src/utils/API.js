@@ -17,7 +17,7 @@ export const createUser = (userData) => {
     body: JSON.stringify(userData),
   });
 };
-
+//Regular fetch request that needs to be changed on the component. Will has to be a login mutation function.
 export const loginUser = (userData) => {
   return fetch('/api/users/login', {
     method: 'POST',
@@ -29,6 +29,7 @@ export const loginUser = (userData) => {
 };
 
 // save book data for a logged in user
+//Look into the REACT what is happening when saving the book
 export const saveBook = (bookData, token) => {
   return fetch('/api/users', {
     method: 'PUT',
