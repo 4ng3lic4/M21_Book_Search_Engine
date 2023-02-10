@@ -1,9 +1,9 @@
 import React from 'react';
 import { Jumbotron, Container, CardColumns, Card, Button } from 'react-bootstrap';
 
-import { useQuery, useMutation} from '@apollo/react-hooks';
+import { useQuery, useMutation} from '@apollo/client';
 import { GET_ME} from '../utils/queries';
-import {REMOVE_BOOK} from '..utils/mutations';
+import {REMOVE_BOOK} from '../utils/mutations';
 import Auth from '../utils/auth';
 import { removeBookId } from '../utils/localStorage';
 
@@ -38,7 +38,7 @@ const SavedBooks = () => {
           const data = cache.readQuery({ query: GET_ME});
           const userDataCache = data.me;
           const savedBooksCache = userDataCache.filter((book) => book.bookId !== bookId ); 
-          data.me.savedBooks = updateBookCache;
+          //data.me.savedBooks = updateBookCache;
           cache.writeQuery({ query : GET_ME, data: {data: {...data.me.savedBooks}}})
         }
       });

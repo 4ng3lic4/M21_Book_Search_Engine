@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 //import Apollo
-import {ApolloProvider} from '@apollo/react-hooks';
-import ApolloClient from 'apollo-boost'
+import {ApolloProvider, InMemoryCache, createHttpLink, ApolloClient} from '@apollo/client';
+
 import SearchBooks from './pages/SearchBooks';
 import SavedBooks from './pages/SavedBooks';
 import Navbar from './components/Navbar';
@@ -17,9 +17,14 @@ const client = new ApolloClient({
       headers: {
         authorization: token ? `Bearer ${token}`: "",
       },
+
     });
+
+
   },
   uri: "/graphql",
+
+  cache: new InMemoryCache()
 });
 
 
