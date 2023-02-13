@@ -40,7 +40,7 @@ const resolvers = {
     },
 
     saveBook: async (parent, { book }, context) => {
-      //console.log(context);
+      console.log(context);
       if (context.user) {
         console.log("inside if statement");
         const updateUser = await User.findOneAndUpdate(
