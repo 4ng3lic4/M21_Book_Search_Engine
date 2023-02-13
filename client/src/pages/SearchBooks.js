@@ -73,12 +73,12 @@ const[saveBook] = useMutation(SAVE_BOOK)
     }
 
     try {
-      await saveBook({
-        variables: {book: bookToSave},
-        update: cache => {
-          const {me} = cache.readQuery({ query : GET_ME});
-          cache.writeQuery({ query: GET_ME , data: {me: { ...me, savedBooks: [...me.saveBooks, bookToSave] } } })
-        }
+      const {data} = await saveBook({
+        variables: { input: bookToSave}
+        // update: cache => {
+        //   const {me} = cache.readQuery({ query : GET_ME});
+        //   cache.writeQuery({ query: GET_ME , data: {me: { ...me, savedBooks: [...me.saveBooks, bookToSave] } } })
+        // }
         
        } );
 

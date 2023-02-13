@@ -41,6 +41,7 @@ const LoginForm = () => {
 const {data} = await loginUser({
 variables: {...userFormData}
 });
+console.log(data);
 
      
       Auth.login(data.login.token);
