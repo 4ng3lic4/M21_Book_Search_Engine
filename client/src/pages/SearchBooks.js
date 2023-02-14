@@ -82,9 +82,9 @@ const[saveBook] = useMutation(SAVE_BOOK)
         //   cache.writeQuery({ query: GET_ME , data: {me: { ...me, savedBooks: [...me.saveBooks, bookToSave] } } })
         // }
         
-      await saveBook({
-      variables: { input: bookToSave}
-       } );
+        await saveBook({
+          variables: { book: {...bookToSave}}
+           } );
 
       // if book successfully saves to user's account, save book id to state
       setSavedBookIds([...savedBookIds, bookToSave.bookId]);
